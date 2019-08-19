@@ -1,6 +1,6 @@
 {
   "name": "xk-web-cli",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "一个快速生成前端web端管理框架的脚手架",
   "bin": {
     "xkweb": "index.js"

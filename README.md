@@ -4,4 +4,4 @@
 ## 安装
     npm install -g xk-web-cli
 ## 用法
-    npm init xx
+    xkweb init xx
