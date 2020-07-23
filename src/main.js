@@ -10,7 +10,8 @@ const versionStr = figlet.textSync('Aotu');
 
 const questions = require('./prompt')
 const { version, name } = require('../package.json');
-const { checkAppName, generateTsJson, isURL } = require('./utils')
+const { checkAppName } = require('./utils')
+const createServer = require('./http')
 
 let projectName;
 let projectPath;
@@ -62,16 +63,8 @@ const bindHandler = {
             console.log(chalk.red('脚手架出现异常,请联系 xx 📧'));
         })
     },
-    json2ts(jsonurl) {
-        // 判断合法 url
-        isURL(jsonurl)
-
-        if (!projectName) {
-            console.log(chalk.red('请创建项目工程 🙏'));
-            process.exit(-1)
-        }
-
-        generateTsJson(jsonurl, projectPath)
+    json2ts() {
+        createServer()
     },
     info() {
         console.log(chalk.bold('\n Auto Info:'));

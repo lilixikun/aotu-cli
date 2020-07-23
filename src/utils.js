@@ -27,46 +27,25 @@ function checkAppName(dir, name) {
     }
 }
 
+
 /**
- * 根据url 生成 ts 类
- * @param {*} jsonurl 接口地址
- * @param {*} projectPath 项目地址
+ * 写入文件
+ * @param {*} dirName 
+ * @param {*} result 
+ * @param {*} spinner 
  */
-function generateTsJson(jsonurl, projectPath) {
-
-    const spinner = ora(`⏰ ${chalk.gray('正在生成接口文档中 ⌛️')}`).start();
-
-    const jsonContent = {
-        "name": 'xikun',
-        "list": [
-            {
-                "name": '小孩',
-                "age": 12
-            },
-            {
-                "name": '小孩',
-                "age": 12
-            }
-        ],
-        data: {
-            "version": 1.1,
-            "len": 20,
-            "height": "22cm"
+function writeFile(dirName, result, spinner) {
+    fs.writeFile(`${dirName}.ts`, result, 'utf-8', function (err) {
+        if (err) {
+            spinner.fail(chalk.red('生成接口文档失败 😭'))
+            process.exit(-1)
         }
-    }
-    const result = json2ts.convert(JSON.stringify(jsonContent, null, 4))
-    try {
-        const path = `${projectPath}/docs/${+new Date().ts}`
-        fs.writeFileSync(path, result, 'utf-8');
-        spinner.succeed(`${chalk.green('下载成功 😄')}`)
-    } catch (error) {
-        spinner.fail(chalk.red('生成接口文档失败 😭'))
-        process.exit(-1)
-    }
+        spinner.succeed(`${chalk.green(`生成文档${dirName}.ts 成功 😄`)}`)
+    })
 }
 
 module.exports = {
     checkAppName: checkAppName,
-    generateTsJson: generateTsJson,
+    writeFile: writeFile,
     isURL: isURL
 }
