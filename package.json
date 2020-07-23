@@ -1,16 +1,26 @@
 {
   "name": "aotu-cli",
-  "version": "1.0.0",
-  "description": "",
-  "private": "true",
+  "version": "0.0.1",
+  "description": "快速生成项目,一键生成 ts 类接口",
   "main": "index.js",
   "scripts": {},
   "bin": {
-    "aotu-cli": "./bin/www"
+    "aotu": "./bin/www"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LiLixikun/aotu-cli.git"
+  },
+  "keywords": [
+    "一键生成 TS 类接口",
+    "项目脚手架"
+  ],
+  "author": "xikun",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiLixikun/aotu-cli/issues"
+  },
+  "homepage": "https://github.com/LiLixikun/aotu-cli",
   "devDependencies": {
     "eslint": "^7.5.0",
     "figlet": "^1.5.0",
